@@ -17,21 +17,21 @@ export function Modelscarousal(){
     return(
         <Carousel
             plugins={[plugin.current]}
-            className="w-screen max-w-screen mt-2 mb-6"
+            className="w-full max-w-screen mt-2 mb-6 md:mt-0"
             >
             <CarouselContent>
                 {Models.map((models, index) => (
-                <CarouselItem key={index}>
+                <CarouselItem key={index} className="md:basis-1/2">
                     <div className="p-1">
                     
-                        <div className="flex aspect-square items-center justify-center p-6 bg-gray-300">
-                            <span className="text-4xl font-semibold">
+                        <div className="flex aspect-square items-center justify-center">
+                            
                                 <img 
                                 src={models.Image} 
                                 alt="model" 
-                                className="w-full h-full object-contain"
+                                className="w-full h-full object-contain rounded-lg"
                                 />
-                            </span>
+                            
                         </div>
                        
                     </div>

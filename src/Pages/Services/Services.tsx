@@ -6,10 +6,10 @@ import { ServicesMenu } from "@/UI/ServicesMenu";
 
 export function Services(){
     return(
-        <div className="w-dvw h-dvh bg-gray-300">
+        <div className="w-dvw h-dvh">
             <NavBar/>
             <Servicescarousal/>
-            <div className="min-h-screen pb-24 bg-gray-300">
+            <div className="min-h-screen pb-24">
               <ServicesMenu/>  
             </div>
             
