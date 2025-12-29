@@ -76,24 +76,40 @@ export function BookingUi(){
 
     const [chosenTime, setTimeValue] = React.useState("")
 
+    // unavailable dates and times fetched from backend libraries
+    const [fullyBookedDates, setFullyBookedDates] = React.useState<Date[]>([])
+    const [unavailableTimes, setUnavailableTimes] = React.useState<string[]>([])
 
-    //change this to take data from a JSON file eventually DB
-    const fullyBookedDates = [
-        new Date(2025,  9, 20),
-        new Date(2025, 9, 25),
-        new Date(2025, 9, 28),
-        new Date(2025, 9, 15),
-        new Date(2025, 9, 9),
-    ]
+    React.useEffect(() => {
+        const fetchUnavailable = async () => {
+            try {
+                // TODO: replace 'James' with selected specialist when available
+                const res = await fetch(`/booking/validation?specialist=James`)
+                const json = await res.json()
+                if (json.success) {
+                    const dates: Date[] = (json.dates || []).map((d: string) => {
+                        const parts = d.split("-").map((p: string) => parseInt(p, 10))
+                        return new Date(parts[0], parts[1] - 1, parts[2])
+                    })
+                    setFullyBookedDates(dates)
+                    setUnavailableTimes(json.times || [])
+                } else {
+                    console.error('booking fetch error', json.error)
+                }
+            } catch (err) {
+                console.error('failed to fetch unavailable dates', err)
+            }
+        }
+        fetchUnavailable()
+    }, [])
 
     //function to check if time is available
     const handleShowAlert = () => {
-        if (chosenTime == "11:30:00"){
-          setTime(true)  
-        }else{
+        if (unavailableTimes.includes(chosenTime)){
+          setTime(true)
+        } else {
             navigate("/ConfirmBooking")
-        };
-        
+        }
     };
 
 
