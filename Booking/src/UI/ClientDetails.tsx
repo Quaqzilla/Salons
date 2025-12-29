@@ -21,24 +21,28 @@ import{
     Button
 }from "@/components/ui/button"
 
+import { NavBar } from "./NavBar"
+
 export function ClientDetails(){
     return(
-        <div className="p-6">
+        <div>
 
-            <div className="mb-3">
+            <NavBar/>
+
+            <div className="p-6">
                 <h1 className="text-2xl font-medium">Enter Your Details</h1>
             </div>
 
-            <div>
+            <div className="md:mt-10 p-6">
 
-                <div className="flex gap-2 justify-evenly items-center mb-4">
+                <div className="flex gap-2 justify-evenly items-center mb-4 md:gap-1">
                     <div>
                         <Label htmlFor="Name" className="text-lg">Name</Label>
                         <Input 
                         placeholder="Enter name..." 
                         type="text" 
                         id="name"
-                        className="bg-white text-md"
+                        className="bg-gray-100 border-b-3 text-md md:w-100"
                         />
                     </div>
                     <div>
@@ -47,37 +51,41 @@ export function ClientDetails(){
                         placeholder="Enter surname..." 
                         type="text" 
                         id="surname"
-                        className="bg-white text-md"
+                        className="bg-gray-100 border-b-3 text-md md:w-100"
                         />
                     </div>
                 </div>
 
-                <div>
-                    <Label htmlFor="Email" className="text-lg">Email Address</Label>
-                    <InputGroup className="bg-white mb-4">
-                        
-                        <InputGroupInput placeholder="Email address" required type="email" />
-                        <InputGroupAddon>
-                            <MailIcon/>
-                        </InputGroupAddon>
-                    </InputGroup>
+                <div className="flex flex-col gap-2 md:flex-row md:gap-1 md:justify-evenly md:items-center">
+                    <div>
+                        <Label htmlFor="Email" className="text-lg">Email Address</Label>
+                        <InputGroup className="bg-gray-100 border-b-3 mb-4 md:w-100">
+                            
+                            <InputGroupInput placeholder="Email address" required type="email" />
+                            <InputGroupAddon>
+                                <MailIcon/>
+                            </InputGroupAddon>
+                        </InputGroup>
+                    </div>
+
+                    <div>
+                        <Label htmlFor="Phone Number" className="text-lg">Phone Number</Label>
+                        <InputGroup className="bg-gray-100 border-b-3 mb-4 md:w-100">
+                            
+                            <InputGroupInput placeholder="Phone number" required type="number" />
+                            <InputGroupAddon>
+                                <PhoneIcon/>
+                            </InputGroupAddon>
+                        </InputGroup>
+                    </div>
                 </div>
 
-                <div>
-                    <Label htmlFor="Phone Number" className="text-lg">Phone Number</Label>
-                    <InputGroup className="bg-white mb-4">
-                        
-                        <InputGroupInput placeholder="Phone number" required type="number" />
-                        <InputGroupAddon>
-                            <PhoneIcon/>
-                        </InputGroupAddon>
-                    </InputGroup>
-                </div>
+                
 
                 <div className="flex flex-wrap gap-2 mt-12 justify-center items-center">
                     <Button
                         variant="outline"
-                        className="bg-black text-gray-300"
+                        className="bg-black text-gray-300 cursor-pointer"
                     >
                         Confirm Appointment
                     </Button>

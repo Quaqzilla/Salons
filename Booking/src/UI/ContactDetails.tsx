@@ -24,7 +24,7 @@ export function ContactDetails(){
     };
 
     return(
-        <div className="min-h-screen pb-24 bg-gray-300">
+        <div className="min-h-screen pb-24">
              
              <div className="">
                 <img src={img} alt="" className="h-60 w-screen object-cover bg-fixed"/>
@@ -35,7 +35,7 @@ export function ContactDetails(){
                 </div>
              </div>
 
-            <div className="relative -top-5 p-6 bg-gray-300 max-h-screen rounded-t-3xl">
+            <div className="relative p-6 max-h-screen rounded-t-3xl">
 
                 <div className="mb-4">
                     <h1 className="text-2xl font-medium">Name of Specialist</h1>
@@ -70,7 +70,7 @@ export function ContactDetails(){
                         <p>09h00 - 12h00</p>
                     </div>
 
-                    <p className="mt-3 text-red-400">N.B <strong>Sunday</strong> appointsments are only on special request </p>
+                    <p className="mt-3 text-orange-300">N.B <strong>Sunday</strong> appointsments are only on special request </p>
 
             </div>
             <button 

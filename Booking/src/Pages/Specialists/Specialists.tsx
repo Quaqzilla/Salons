@@ -5,10 +5,10 @@ import { Servicescarousal } from "@/UI/Servicescarousal";
 
 export function Specialists() {
     return(
-        <div className="bg-gray-300 h-dvh">
+        <div className=" h-dvh">
             <NavBar/>
             <Servicescarousal/>
-            <div className="min-h-screen pb-24 bg-gray-300">
+            <div className="min-h-screen pb-24">
                 <SpecialistList/>
             </div>
             <div>

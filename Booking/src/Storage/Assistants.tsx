@@ -1,6 +1,7 @@
-import fst from "./../assets/Staff/3.webp"
-import scd from "./../assets/Staff/1.webp"
+import fst from "./../assets/Staff/6.webp"
+import scd from "./../assets/Staff/3.webp"
 import thd from "./../assets/Staff/2.webp"
+import ffth from "./../assets/Staff/4.webp"
 
 const Assistants = [
 
@@ -26,11 +27,11 @@ const Assistants = [
         "Image": thd
     },
     {
-        "Name": "Susie Blame",
+        "Name": "Sandy Zodwa",
         "Specialist": "Spa",
         "Phone": "068-454-3543",
         "Email": "SusieBlm@Salon.co.za",
-        "Image": ""
+        "Image": ffth
     },
 ]
 

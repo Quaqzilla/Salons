@@ -118,19 +118,19 @@ export function BookingUi(){
                             variant="outline"
                             role="combobox"
                             aria-expanded={opn}
-                            className="w-[200px] justify-between"
+                            className="w-[200px] justify-between bg-gray-100"
                             >
                             {value
                                 ? frameworks.find((framework) => framework.value === value)?.label
-                                : "Select framework..."}
+                                : "Select Service..."}
                             <ChevronsUpDown className="opacity-50" />
                             </Button>
                         </PopoverTrigger>
                         <PopoverContent className="w-[200px] p-0">
                             <Command>
-                            <CommandInput placeholder="Search framework..." className="h-9" />
+                            <CommandInput placeholder="Search Service..." className="h-9" />
                             <CommandList>
-                                <CommandEmpty>No framework found.</CommandEmpty>
+                                <CommandEmpty>No Service found.</CommandEmpty>
                                 <CommandGroup>
                                 {frameworks.map((framework) => (
                                     <CommandItem
@@ -138,7 +138,8 @@ export function BookingUi(){
                                     value={framework.value}
                                     onSelect={(currentValue) => {
                                         setValue(currentValue === value ? "" : currentValue)
-                                        setOpen(false)
+                                        // close the service popover (opn) not the date popover (open)
+                                        setOpn(false)
                                     }}
                                     >
                                     {framework.label}
@@ -173,23 +174,26 @@ export function BookingUi(){
                         className="w-full max-w-screen"
                         >
                         <CarouselContent>
-                            {Assistants.map((Assistants, Index) => (
-                            <CarouselItem key={Index} className="basis-1/2">
-                                <div className="p-1">
-                                    
-                                    <div className="flex flex-col aspect-square items-center justify-center align-middle p-3">
-                                        <Card className="bg-gray-50 border-b-3 w-30 h-45">
-                                            <CardContent>
-                                                <img src={Assistants.Image} alt="" className="w-20 h-25 object-contain" />
-                                                <p className="font-medium">{Assistants.Name}</p>
-                                            </CardContent>
-                                        </Card>
-                                        
-                                    </div>
-                                 
-                                </div>
-                            </CarouselItem>
-                            ))}
+                            {
+                                // filter assistants by selected service (value). If no selection, show all
+                                (() => {
+                                    const filtered = value ? Assistants.filter(a => a.Specialist === value) : Assistants;
+                                    return filtered.map((assistant, index) => (
+                                        <CarouselItem key={index} className="basis-1/2 md:basis-1/4">
+                                            <div className="p-1">
+                                                <div className="flex flex-col aspect-square items-center justify-center align-middle p-3">
+                                                    <Card className="bg-gray-100 border-b-3 w-30 h-45 flex justify-center items-center md:w-60 md:h-100 md:bg-black md:text-white">
+                                                        <CardContent className="flex justify-center flex-col items-center gap-4">
+                                                            <img src={assistant.Image} alt="" className="w-20 h-25 object-contain md:w-40 md:h-40" />
+                                                            <p className="font-medium">{assistant.Name}</p>
+                                                        </CardContent>
+                                                    </Card>
+                                                </div>
+                                            </div>
+                                        </CarouselItem>
+                                    ))
+                                })()
+                            }
                         </CarouselContent>
                     </Carousel>
 
@@ -207,7 +211,7 @@ export function BookingUi(){
                         <Button
                         variant="outline"
                         id="date-picker"
-                        className="w-32 justify-between font-normal"
+                        className="w-32 justify-between font-normal bg-gray-100"
                         >
                         {date ? date.toLocaleDateString() : "Select date"}
                         <ChevronDownIcon />
@@ -239,7 +243,7 @@ export function BookingUi(){
                     step="1"
                     defaultValue="10:30:00"
                     onChange={(e) => setTimeValue(e.target.value)}
-                    className="bg-background appearance-none [&::-webkit-calendar-picker-indicator]:hidden [&::-webkit-calendar-picker-indicator]:appearance-none"
+                    className="bg-gray-100 appearance-none [&::-webkit-calendar-picker-indicator]:hidden [&::-webkit-calendar-picker-indicator]:appearance-none"
                     />
                 </div>
             </div>

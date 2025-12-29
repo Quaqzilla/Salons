@@ -9,10 +9,10 @@ export function Home(){
 
     return(
         /*main application*/
-        <div className="bg-gray-300">
+        <div className="">
             <NavBar/>
             <Servicescarousal/>
-            <div className="max-h-screen pb-15 bg-gray-300">
+            <div className="max-h-screen pb-15">
                <Modelscarousal/> 
             </div>
             

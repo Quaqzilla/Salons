@@ -3,8 +3,8 @@ import { ClientDetails } from "@/UI/ClientDetails";
 
 export function Details() {
     return(
-        <div className="h-dvh bg-gray-300">
-            <div className="h-dvh bg-gray-300">
+        <div className="h-dvh ">
+            <div className="h-dvh">
                <ClientDetails/> 
             </div>
             <Bottomnav/>

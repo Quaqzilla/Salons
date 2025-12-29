@@ -1,8 +1,8 @@
-import nails from './../assets/Icons/nails.webp';
-import hair from './../assets/Icons/hair.webp';
-import makeup from './../assets/Icons/makeup.webp';
-import weaves from './../assets/Icons/weaves.webp';
-import spa from './../assets/Icons/spa.webp';
+import nails from './../assets/Icons/n4.webp';
+import hair from './../assets/Icons/h1.webp';
+import makeup from './../assets/Icons/m3.webp';
+import weaves from './../assets/Icons/w2.webp';
+import spa from './../assets/Icons/s5.webp';
 
 const Services = [
 

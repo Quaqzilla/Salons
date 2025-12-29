@@ -22,11 +22,11 @@ export function SpecialistList(){
 
             {Assistants.map((assistants, index) => (
 
-            <Card className="flex flex-col gap-2 mb-2" key={index}>
-                <CardContent className="flex flex-row justify-between items-center">
+            <Card className="flex flex-col gap-2 mb-2 bg-gray-100" key={index}>
+                <CardContent className="flex flex-row items-center gap-3 p-3 rounded-2xl md:justify-start">
 
                     <div className="mr-6">
-                        <img src={assistants.Image} alt="Specialist image" className="w-30 h-35 object-contain"/>
+                        <img src={assistants.Image} alt="Specialist image" className="w-30 h-35 object-contain md:w-40 md:h-40"/>
                     </div>
 
                     <div className="flex flex-col">
@@ -37,7 +37,7 @@ export function SpecialistList(){
 
                         <CardAction>
                             <button 
-                            className="text-gray-300 bg-black rounded-md p-2 text-sm"
+                            className="text-gray-300 bg-black rounded-md p-2 text-sm cursor-pointer"
                             onClick={view}
                             >View Contact Details</button>
                         </CardAction>

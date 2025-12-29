@@ -46,7 +46,7 @@ export function Bottomnav(){
 
 
     return(
-        <div className="fixed bottom-0 h-24 p-6 bg-gray-100 w-screen flex items-center justify-between rounded-t-2xl">
+        <div className="fixed bottom-1 w-full h-20 bg-gray-100 flex items-center justify-between rounded-full shadow-lg px-8 py-4 gap-12 z-50 md:hidden">
             
             <div className="flex flex-col items-center">
                 <button onClick={() => {handleClick('Home'); Home();}} className='p-3  rounded-lg transition-colors relative'>
